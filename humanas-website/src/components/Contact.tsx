@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MessageSquare, Phone, Mail, MapPin } from "lucide-react";
+import { MessageSquare, Phone, Mail, MapPin, Instagram } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -28,7 +28,7 @@ Telefone: ${formData.phone}
 Assunto: ${formData.subject}
 Mensagem: ${formData.message}`;
 
-    const whatsappUrl = `https://wa.me/55319984062433?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappUrl = `https://wa.me/5531993349460?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, "_blank");
 
     toast({
@@ -38,7 +38,7 @@ Mensagem: ${formData.message}`;
   };
 
   const handleWhatsApp = () => {
-    const whatsappUrl = "https://wa.me/55319984062433?text=Olá! Gostaria de agendar uma aula experimental na HuManas.";
+    const whatsappUrl = "https://wa.me/5531993349460?text=Olá! Gostaria de falar com a equipe da HuManas.";
     window.open(whatsappUrl, "_blank");
   };
 
@@ -50,7 +50,7 @@ Mensagem: ${formData.message}`;
             Entre em Contato
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Agende sua aula experimental gratuita ou tire suas dúvidas. Estamos prontos para ajudar você a alcançar seus objetivos!
+            Fale com a equipe ou envie uma mensagem para descobrir o melhor caminho de estudos. Estamos por aqui para ajudar você a alcançar seus objetivos!
           </p>
         </div>
 
@@ -79,7 +79,7 @@ Mensagem: ${formData.message}`;
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="(31) 99840-62433"
+                    placeholder="(31) 99334-9460"
                     className="rounded-lg"
                   />
                 </div>
@@ -104,10 +104,8 @@ Mensagem: ${formData.message}`;
                     <SelectValue placeholder="Selecione o assunto" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="aula-experimental">Aula experimental</SelectItem>
                     <SelectItem value="reforco-escolar">Reforço escolar</SelectItem>
                     <SelectItem value="enem-vestibular">ENEM e Vestibulares</SelectItem>
-                    <SelectItem value="cursos-tecnicos">Cursos técnicos</SelectItem>
                     <SelectItem value="idiomas">Idiomas</SelectItem>
                     <SelectItem value="duvidas">Dúvidas gerais</SelectItem>
                   </SelectContent>
@@ -139,7 +137,7 @@ Mensagem: ${formData.message}`;
                 <MessageSquare className="w-16 h-16 mx-auto mb-4" />
                 <h3 className="text-2xl font-bold mb-4">Fale conosco agora!</h3>
                 <p className="mb-6 opacity-90">
-                  Tire suas dúvidas ou agende sua aula experimental diretamente pelo WhatsApp
+                  Tire suas dúvidas ou inicie seu atendimento diretamente pelo WhatsApp
                 </p>
                 <Button
                   onClick={handleWhatsApp}
@@ -162,7 +160,7 @@ Mensagem: ${formData.message}`;
                   </div>
                   <div>
                     <div className="font-semibold text-foreground">Telefone</div>
-                    <div className="text-muted-foreground">(31) 99840-62433</div>
+                    <div className="text-muted-foreground">(31) 99334-9460</div>
                   </div>
                 </div>
 
@@ -172,7 +170,24 @@ Mensagem: ${formData.message}`;
                   </div>
                   <div>
                     <div className="font-semibold text-foreground">Email</div>
-                    <div className="text-muted-foreground">contato@humanas.com.br</div>
+                    <div className="text-muted-foreground">souhumanasbh@gmail.com</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[hsl(var(--humanas-yellow)/0.2)] to-[hsl(var(--humanas-pink)/0.2)] flex items-center justify-center">
+                    <Instagram className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-foreground">Instagram</div>
+                    <a
+                      href="https://www.instagram.com/aulashumanas/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground underline-offset-4 hover:underline"
+                    >
+                      @aulashumanas
+                    </a>
                   </div>
                 </div>
 
@@ -190,8 +205,8 @@ Mensagem: ${formData.message}`;
               <div className="mt-6 pt-6 border-t border-border/50">
                 <p className="text-sm text-muted-foreground">
                   <strong>Horário de atendimento:</strong><br />
-                  Segunda a sexta: 8h às 20h<br />
-                  Sábados: 8h às 14h
+                  Segunda a sexta: 8h às 19h<br />
+                  Sábados: 9h às 13h
                 </p>
               </div>
             </Card>
@@ -203,3 +218,7 @@ Mensagem: ${formData.message}`;
 };
 
 export default Contact;
+
+
+
+

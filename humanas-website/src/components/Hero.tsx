@@ -16,21 +16,21 @@ const subjectFrames = [
     icon: Atom,
     accent: "Experimentos ao vivo",
     accentGradient: "from-[#A5F3FC] via-[#38BDF8] to-[#6366F1]",
-    tags: ["Biologia", "Química"]
+    tags: ["Biologia", "Química", "Física"]
   },
   {
     title: "Ciências humanas",
     icon: Globe2,
     accent: "Debates guiados",
     accentGradient: "from-[#F9A8D4] via-[#F472B6] to-[#C084FC]",
-    tags: ["História", "Atualidades"]
+    tags: ["História", "Geografia", "Atualidades"]
   },
   {
     title: "Linguagens & artes",
     icon: Palette,
     accent: "Expressão criativa",
     accentGradient: "from-[#FDE68A] via-[#FBBF24] to-[#F97316]",
-    tags: ["Redação", "Literatura"]
+    tags: ["Redação", "Literatura", "Português"]
   }
 ];
 
@@ -62,7 +62,7 @@ const Hero = () => {
                 className="border-primary/20 bg-background/20 text-primary backdrop-blur-sm"
               >
                 <Star className="mr-1 h-4 w-4" />
-                +1000 alunos aprovados
+                Centenas de alunos aprovados
               </Badge>
               <Badge
                 variant="secondary"
@@ -194,3 +194,7 @@ const Hero = () => {
 };
 
 export default Hero;
+
+
+
+

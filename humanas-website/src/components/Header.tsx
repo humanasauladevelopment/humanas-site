@@ -69,7 +69,7 @@ const Header = () => {
               onClick={() => scrollToSection("contato")}
               className="btn-hero"
             >
-              Agendar aula experimental
+              Falar com a equipe
             </Button>
           </div>
 
@@ -106,7 +106,7 @@ const Header = () => {
                 onClick={() => scrollToSection("contato")}
                 className="btn-hero w-full mt-4"
               >
-                Agendar aula experimental
+                Falar com a equipe
               </Button>
             </div>
           </div>
@@ -117,3 +117,6 @@ const Header = () => {
 };
 
 export default Header;
+
+
+

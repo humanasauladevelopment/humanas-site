@@ -78,7 +78,7 @@ const sections: Section[] = [
   {
     title: "9. Contato",
     content: [
-      "Se restarem dúvidas ou caso deseje exercer algum direito relacionado aos seus dados, fale conosco pelo e-mail privacidade@humanas.com.br."
+      "Se restarem dúvidas ou caso deseje exercer algum direito relacionado aos seus dados, fale conosco pelo e-mail souhumanasbh@gmail.com."
     ]
   }
 ];
@@ -176,3 +176,7 @@ const PrivacyPolicy = () => {
 };
 
 export default PrivacyPolicy;
+
+
+
+

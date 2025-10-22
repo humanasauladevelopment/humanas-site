@@ -1,78 +1,137 @@
 ﻿import { Card } from "@/components/ui/card";
-import { Star, Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
+
+const googleReviews = [
+  {
+    name: "Bárbara Melane",
+    headline: "5,0 ★ Google Reviews",
+    rating: 5,
+    text:
+      "Marina foi extremamente necessária para minha aprovação em uma prova. Boas aulas, preço adequado e excelência na qualidade. Indico para todos!",
+    response: "Ficamos muito felizes com sua satisfação e sucesso, Bárbara :)"
+  },
+  {
+    name: "Melissa Maia",
+    headline: "5,0 ★ Google Reviews",
+    rating: 5,
+    text: "Uma empresa top, me ajudou demais!!!",
+    response: null
+  }
+];
+
+const writingResults = [
+  {
+    name: "Carol – Sto Agostinho Centro",
+    score: 960,
+    exam: "Redação ENEM",
+    text:
+      "Em menos de um ano, minhas redações semanais ajudaram a controlar o tempo de escrita, ampliar repertório e me prepararam para qualquer tema. Resultado: 960 no Enem." 
+  },
+  {
+    name: "Luiza – BH",
+    score: 940,
+    exam: "Redação ENEM",
+    text:
+      "Comecei com a Layla no início do ano e saí de 800 para 940. Aprendi a atualizar repertório, manter constncia nas redações e cheguei ao Enem segura para tirar uma nota alta." 
+  },
+  {
+    name: "Rafaela – Sto Agostinho Centro",
+    score: 920,
+    exam: "Redação ENEM",
+    text:
+      "As aulas mostraram como aproveitar repertório sociocultural e conectar argumentos. Passei em Odontologia na UFMG e alcancei 920 na redação." 
+  },
+  {
+    name: "Helena – Marista BH",
+    score: 880,
+    exam: "Redação ENEM",
+    text:
+      "As discussões sobre temas e estrutura me ajudaram durante todo o ensino médio. Atingi 880 na redação e consegui aprovação em uma universidade federal." 
+  }
+];
 
 const Testimonials = () => {
-  const testimonials = [
-    {
-      name: "Lorem Ipsum",
-      role: "Lorem ipsum dolor sit amet",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.",
-      rating: 5,
-      subject: "Lorem ipsum"
-    },
-    {
-      name: "Lorem Ipsum",
-      role: "Lorem ipsum dolor sit amet",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.",
-      rating: 5,
-      subject: "Lorem ipsum"
-    },
-    {
-      name: "Lorem Ipsum",
-      role: "Lorem ipsum dolor sit amet",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.",
-      rating: 5,
-      subject: "Lorem ipsum"
-    }
-  ];
-
   return (
     <section id="depoimentos" className="py-20 bg-background">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-16 reveal">
-          <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
-            O que dizem sobre nós
-          </h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">Feedbacks & Resultados</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Depoimentos reais de famílias e estudantes que transformaram seus resultados com a HuManas
+            Histórias reais de estudantes que cresceram com a HuManas: avaliações do Google e notas de redação que enchem a gente de orgulho.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="card-hover p-8 bg-card-gradient border-border/50 reveal relative">
-              <div className="absolute top-6 right-6 text-[hsl(var(--humanas-yellow))] opacity-20">
-                <Quote className="w-12 h-12" />
-              </div>
+        <div className="space-y-16">
+          <div className="space-y-6 reveal">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[hsl(var(--humanas-purple))] text-center lg:text-left">
+              Avaliações no Google
+            </h3>
+            <div className="grid gap-6 lg:grid-cols-2">
+              {googleReviews.map((review) => (
+                <Card
+                  key={review.name}
+                  className="relative overflow-hidden border border-border/40 bg-card-gradient p-8 shadow-[0_20px_60px_rgba(111,45,189,0.15)]"
+                >
+                  <div className="absolute top-6 right-6 text-[hsl(var(--humanas-yellow))]/40">
+                    <Quote className="h-12 w-12" />
+                  </div>
 
-              {/* Rating */}
-              <div className="flex items-center space-x-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-[hsl(var(--humanas-yellow))] text-[hsl(var(--humanas-yellow))]" />
-                ))}
-              </div>
+                  <div className="mb-4 flex items-center justify-between gap-2">
+                    <div>
+                      <div className="text-lg font-semibold text-primary">{review.name}</div>
+                      <div className="text-xs text-muted-foreground">{review.headline}</div>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      {[...Array(review.rating)].map((_, index) => (
+                        <Star
+                          key={`${review.name}-star-${index}`}
+                          className="h-4 w-4 fill-[hsl(var(--humanas-yellow))] text-[hsl(var(--humanas-yellow))]"
+                        />
+                      ))}
+                    </div>
+                  </div>
 
-              {/* Subject Badge */}
-              <div className="inline-block bg-gradient-to-r from-[hsl(var(--humanas-yellow)/0.1)] to-[hsl(var(--humanas-pink)/0.1)] px-3 py-1 rounded-full text-sm font-medium text-primary mb-4">
-                {testimonial.subject}
-              </div>
+                  <p className="text-sm leading-relaxed text-muted-foreground">“{review.text}”</p>
 
-              {/* Content */}
-              <blockquote className="text-muted-foreground mb-6 leading-relaxed italic">
-                "{testimonial.content}"
-              </blockquote>
+                  {review.response ? (
+                    <div className="mt-4 rounded-lg bg-[hsl(var(--humanas-purple)/0.08)] p-3 text-xs text-primary">
+                      <span className="font-semibold">Resposta da HuManas: </span>
+                      {review.response}
+                    </div>
+                  ) : null}
+                </Card>
+              ))}
+            </div>
+          </div>
 
-              {/* Author */}
-              <div className="border-t border-border/50 pt-4">
-                <div className="font-semibold text-primary">
-                  {testimonial.name}
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  {testimonial.role}
-                </div>
-              </div>
-            </Card>
-          ))}
+          <div className="space-y-6 reveal">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[hsl(var(--humanas-yellow))] text-center lg:text-left">
+              Resultados de redação
+            </h3>
+            <div className="grid gap-6 lg:grid-cols-2">
+              {writingResults.map((result) => (
+                <Card
+                  key={result.name}
+                  className="border border-border/40 bg-white/95 p-6 shadow-[0_18px_50px_rgba(111,45,189,0.18)]"
+                >
+                  <div className="mb-4 flex items-baseline justify-between gap-4">
+                    <div>
+                      <div className="text-[2.75rem] font-black text-[hsl(var(--humanas-pink))] leading-none">
+                        {result.score}
+                      </div>
+                      <div className="text-xs font-semibold uppercase tracking-[0.35em] text-[hsl(var(--humanas-purple))]">
+                        {result.exam}
+                      </div>
+                    </div>
+                    <div className="max-w-[60%] text-right text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                      {result.name}
+                    </div>
+                  </div>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{result.text}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -80,3 +139,6 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+
+
+

@@ -70,7 +70,7 @@ const sections = [
   {
     title: "10. Contato",
     content: [
-      "Em caso de dúvidas sobre estes termos ou sobre qualquer serviço oferecido, entre em contato pelo e-mail contato@humanas.com.br."
+      "Em caso de dúvidas sobre estes termos ou sobre qualquer serviço oferecido, entre em contato pelo e-mail souhumanasbh@gmail.com."
     ]
   }
 ];
@@ -138,3 +138,7 @@ const TermsOfUse = () => {
 };
 
 export default TermsOfUse;
+
+
+
+

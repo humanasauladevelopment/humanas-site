@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+﻿import { useEffect } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Values from "@/components/Values";
@@ -10,6 +10,7 @@ import Plans from "@/components/Plans";
 import Team from "@/components/Team";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Presentation from "@/components/Presentation";
 
 const Index = () => {
   useEffect(() => {
@@ -41,6 +42,7 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <Presentation />
         <Values />
         <Methodology />
         <RemoteLearning />
@@ -56,3 +58,6 @@ const Index = () => {
 };
 
 export default Index;
+
+
+

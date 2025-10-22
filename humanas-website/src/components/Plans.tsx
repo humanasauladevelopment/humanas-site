@@ -1,95 +1,67 @@
 ﻿import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
+const plans = [
+  {
+    name: "Aulas Avulsas",
+    price: "120,00",
+    period: "valor presencial (1h)",
+    description: "Perfeito para reforços pontuais, revisão rápida ou teste de metodologia.",
+    features: [
+      "Presencial 1h: R$120,00",
+      "Presencial 1h30: R$150,00 (R$100/h)",
+      "Online 1h: R$79,00",
+      "Online 1h30: R$90,00 (R$60/h)",
+      "Materiais exclusivos e suporte via WhatsApp"
+    ],
+    highlighted: false,
+    buttonText: "Agendar aula"
+  },
+  {
+    name: "Pacotes Presenciais",
+    price: "570,00",
+    period: "pacote inicial",
+    description: "Acompanhamento contínuo com presença e proximidade para quem precisa de rotina.",
+    features: [
+      "5 aulas de 1h: R$570,00",
+      "5 aulas de 1h30: R$712,00",
+      "10 aulas de 1h: R$1.116,00",
+      "10 aulas de 1h30: R$1.350,00",
+      "Plano personalizado, relatórios e suporte às famílias"
+    ],
+    highlighted: true,
+    buttonText: "Contratar presencial"
+  },
+  {
+    name: "Pacotes Online",
+    price: "376,00",
+    period: "pacote inicial",
+    description: "Mesma mentoria, com flexibilidade total e materiais digitais organizados.",
+    features: [
+      "5 aulas de 1h: R$376,00",
+      "5 aulas de 1h30: R$428,00",
+      "10 aulas de 1h: R$735,00",
+      "10 aulas de 1h30: R$837,00",
+      "Aulas ao vivo, gravações opcionais e plantão de dúvidas"
+    ],
+    highlighted: false,
+    buttonText: "Contratar online"
+  }
+];
+
+type Plan = (typeof plans)[number];
+
+const defaultPlanIndex = plans.findIndex((plan) => plan.highlighted);
+
 const Plans = () => {
-  const plans = [
-    {
-      name: "Avulso",
-      price: "x",
-      period: "por aula",
-      description: "Ideal para reforços pontuais ou testes",
-      features: [
-        "1 aula de 60 minutos",
-        "Material didático incluso",
-        "Relatório de desempenho",
-        "Suporte via WhatsApp"
-      ],
-      highlighted: false,
-      buttonText: "Agendar aula"
-    },
-    {
-      name: "Pacotes",
-      price: "x",
-      period: "4 aulas",
-      description: "Melhor custo-benefício para resultados consistentes",
-      features: [
-        "x aulas de 60 minutos",
-        "Plano de estudos personalizado",
-        "Material didático exclusivo",
-        "Relatórios detalhados",
-        "Suporte pedagógico",
-        "Acompanhamento das famílias"
-      ],
-      highlighted: true,
-      buttonText: "Escolher pacote"
-    },
-    {
-      name: "Mensalidade",
-      price: "x",
-      period: "x aulas/mês",
-      description: "Acompanhamento contínuo e completo",
-      features: [
-        "x aulas de 60 minutos",
-        "Cronograma flexível",
-        "Material didático completo",
-        "Simulados mensais",
-        "Reuniões pedagógicas",
-        "Acompanhamento total",
-        "Desconto em pacotes extras"
-      ],
-      highlighted: false,
-      buttonText: "Assinar plano"
-    }
-  ];
-
-  type Plan = (typeof plans)[number];
-
-  const defaultPlanIndex = plans.findIndex((plan) => plan.highlighted);
   const [activePlanIndex, setActivePlanIndex] = useState(
     defaultPlanIndex >= 0 ? defaultPlanIndex : 0
   );
   const activePlan = plans[activePlanIndex];
   const secondaryPlan =
-    activePlan?.name === "Pacotes"
-      ? plans.find((plan) => plan.name === "Avulso")
+    activePlan?.name === "Pacotes Presenciais"
+      ? plans.find((plan) => plan.name === "Aulas Avulsas")
       : undefined;
-
-  const renderPlanCard = (plan: Plan) => (
-    <div
-      key={plan.name}
-      className="w-full max-w-md rounded-3xl border border-white/40 bg-white/90 p-6 text-left shadow-[0_18px_40px_rgba(111,45,189,0.25)] backdrop-blur-xl"
-    >
-      <div className="mb-3 space-y-1">
-        <h3 className="text-lg font-semibold text-primary">{plan.name}</h3>
-        <p className="text-xs text-muted-foreground">{plan.description}</p>
-      </div>
-      <div className="mb-4">
-        <span className="block text-2xl font-bold text-primary">R$ {plan.price}</span>
-        <span className="text-xs text-muted-foreground">{plan.period}</span>
-      </div>
-      <ul className="space-y-2 text-xs text-foreground">
-        {plan.features.map((feature, featureIndex) => (
-          <li
-            key={`${plan.name}-feature-${featureIndex}`}
-            className="flex items-center gap-2 text-sm"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_12px_rgba(255,16,122,0.5)]" />
-            {feature}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -111,7 +83,7 @@ const Plans = () => {
             Planos e Valores
           </h2>
           <p className="mx-auto max-w-3xl text-xl text-muted-foreground">
-            Escolha o plano que melhor se adapta às suas necessidades e objetivos acadêmicos
+            Conheça nossos formatos presenciais e online e escolha a melhor combinação para sua rotina.
           </p>
         </div>
 
@@ -149,14 +121,44 @@ const Plans = () => {
 
           {cardsToRender.length > 0 && (
             <div className="mt-16 flex flex-wrap justify-center gap-8">
-              {cardsToRender.map((plan) => renderPlanCard(plan))}
+              {cardsToRender.map((plan) => (
+                <div
+                  key={plan.name}
+                  className={`w-full max-w-md rounded-3xl border border-white/40 bg-white/90 p-6 text-left shadow-[0_18px_40px_rgba(111,45,189,0.25)] backdrop-blur-xl transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_24px_55px_rgba(111,45,189,0.35)] ${
+                    plan.highlighted ? "border-[hsl(var(--humanas-pink))]" : ""
+                  }`}
+                >
+                  <div className="mb-3 space-y-1">
+                    <h3 className="text-lg font-semibold text-primary">{plan.name}</h3>
+                    <p className="text-xs text-muted-foreground">{plan.description}</p>
+                  </div>
+                  <div className="mb-4">
+                    <span className="block text-2xl font-bold text-primary">R$ {plan.price}</span>
+                    <span className="text-xs text-muted-foreground">{plan.period}</span>
+                  </div>
+                  <ul className="space-y-2 text-xs text-foreground">
+                    {plan.features.map((feature, featureIndex) => (
+                      <li
+                        key={`${plan.name}-feature-${featureIndex}`}
+                        className="flex items-center gap-2 text-sm"
+                      >
+                        <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_12px_rgba(255,16,122,0.5)]" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <Button className="mt-6 w-full" variant={plan.highlighted ? "default" : "outline"}>
+                    {plan.buttonText}
+                  </Button>
+                </div>
+              ))}
             </div>
           )}
         </div>
 
         <div className="mt-28 text-center reveal">
           <p className="mb-4 text-muted-foreground">
-            Dúvidas sobre os planos? Entre em contato conosco!
+            Quer personalizar um plano? Entre em contato com a nossa equipe pedagógica.
           </p>
           <Button
             onClick={() => scrollToSection("contato")}
@@ -172,3 +174,6 @@ const Plans = () => {
 };
 
 export default Plans;
+
+
+
