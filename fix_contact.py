@@ -1,22 +1,22 @@
-﻿from pathlib import Path
+from pathlib import Path
 
-path = Path("src/components/Contact.tsx")
+path = Path("humanas-website/src/components/Contact.tsx")
 text = path.read_text(encoding="utf-8")
 
 replacements = {
-    "OlÃ¡": "Olá",
-    "informaÃ§Ãµes": "informações",
-    "VocÃª": "Você",
-    "serÃ¡": "será",
-    "dÃºvidas": "dúvidas",
-    "vocÃª": "você",
-    "alcanÃ§ar": "alcançar",
-    "ReforÃ§o": "Reforço",
-    "tÃ©cnicos": "técnicos",
-    "DÃºvidas": "Dúvidas",
-    "HorÃ¡rio": "Horário",
-    "Ã s": "às",
-    "SÃ¡bados": "Sábados"
+    "Olǭ": "Olá",
+    "informa����es": "informações",
+    "VocǦ": "Você",
+    "serǭ": "será",
+    "dǧvidas": "dúvidas",
+    "vocǦ": "você",
+    "alcan��ar": "alcançar",
+    "Refor��o": "Reforço",
+    "tǸcnicos": "técnicos",
+    "Dǧvidas": "Dúvidas",
+    "Horǭrio": "Horário",
+    "��s": "às",
+    "Sǭbados": "Sábados"
 }
 
 for bad, good in replacements.items():

@@ -28,8 +28,18 @@ Install dependencies by running `npm install` inside the `humanas-website` folde
 
 The project can be deployed to any static hosting provider (Netlify, Vercel, GitHub Pages, etc.).
 
+### Generic static hosting
+
 1. Run `npm run build`.
 2. Upload the contents of the `dist/` folder to your hosting provider.
+
+### Vercel
+
+1. Push the repository to GitHub/GitLab/Bitbucket and import it on Vercel.
+2. When prompted for the project root, select `humanas-website/`.
+3. Use the defaults provided in `vercel.json` (build command `npm run build`, output directory `dist/`).  
+   O arquivo também aplica um rewrite para que o React Router funcione em rotas internas.
+4. Deploy. Subsequent pushes to the default branch will trigger automatic redeploys.
 
 ## Support
 
