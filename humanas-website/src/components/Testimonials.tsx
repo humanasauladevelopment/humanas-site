@@ -32,7 +32,7 @@ const writingResults = [
     score: 940,
     exam: "Redação ENEM",
     text:
-      "Comecei com a Layla no início do ano e saí de 800 para 940. Aprendi a atualizar repertório, manter constncia nas redações e cheguei ao Enem segura para tirar uma nota alta." 
+      "Comecei com a Layla no início do ano e saí de 800 para 940. Aprendi a atualizar repertório, manter constância nas redações e cheguei ao Enem segura para tirar uma nota alta." 
   },
   {
     name: "Rafaela – Sto Agostinho Centro",
