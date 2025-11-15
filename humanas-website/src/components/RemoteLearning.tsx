@@ -28,7 +28,7 @@ const RemoteLearning = () => {
             Por que o nosso EAD funciona
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A HuManas nasceu no online e comprova todos os dias que o ensino a distncia pode ser humano, acolhedor e eficiente para quem ensina, acompanha e aprende.
+            A HuManas nasceu no online e comprova todos os dias que o ensino a distância pode ser humano, acolhedor e eficiente para quem ensina, acompanha e aprende.
           </p>
         </div>
 

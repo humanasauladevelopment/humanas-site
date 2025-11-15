@@ -5,7 +5,7 @@ import { Star, Users, BookOpen, Calculator, Atom, Globe2, Palette } from "lucide
 
 const subjectFrames = [
   {
-    title: "Matemática viva",
+    title: "Matemática",
     icon: Calculator,
     accent: "Fórmulas em ação",
     accentGradient: "from-[#FDE68A] via-[#FB7185] to-[#C026D3]",
@@ -14,7 +14,7 @@ const subjectFrames = [
   {
     title: "Ciências da Natureza",
     icon: Atom,
-    accent: "Experimentos ao vivo",
+    accent: "Experimentos",
     accentGradient: "from-[#A5F3FC] via-[#38BDF8] to-[#6366F1]",
     tags: ["Biologia", "Química", "Física"]
   },
