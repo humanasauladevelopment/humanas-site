@@ -44,3 +44,4 @@ The project can be deployed to any static hosting provider (Netlify, Vercel, Git
 ## Support
 
 For questions or improvements, open an issue in the repository or reach out to the HuManas team.
+
