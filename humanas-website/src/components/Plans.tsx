@@ -4,46 +4,19 @@ import { Button } from "@/components/ui/button";
 const plans = [
   {
     name: "Aulas Avulsas",
-    price: "120,00",
-    period: "valor presencial (1h)",
     description: "Perfeito para reforços pontuais, revisão rápida ou teste de metodologia.",
-    features: [
-      "Presencial 1h: R$120,00",
-      "Presencial 1h30: R$150,00 (R$100/h)",
-      "Online 1h: R$79,00",
-      "Online 1h30: R$90,00 (R$60/h)",
-      "Materiais exclusivos e suporte via WhatsApp"
-    ],
     highlighted: false,
     buttonText: "Agendar aula"
   },
   {
     name: "Pacotes Presenciais",
-    price: "570,00",
-    period: "pacote inicial",
     description: "Acompanhamento contínuo com presença e proximidade para quem precisa de rotina.",
-    features: [
-      "5 aulas de 1h: R$570,00",
-      "5 aulas de 1h30: R$712,00",
-      "10 aulas de 1h: R$1.116,00",
-      "10 aulas de 1h30: R$1.350,00",
-      "Plano personalizado, relatórios e suporte às famílias"
-    ],
     highlighted: true,
     buttonText: "Contratar presencial"
   },
   {
     name: "Pacotes Online",
-    price: "376,00",
-    period: "pacote inicial",
     description: "Mesma mentoria, com flexibilidade total e materiais digitais organizados.",
-    features: [
-      "5 aulas de 1h: R$376,00",
-      "5 aulas de 1h30: R$428,00",
-      "10 aulas de 1h: R$735,00",
-      "10 aulas de 1h30: R$837,00",
-      "Aulas ao vivo, gravações opcionais e plantão de dúvidas"
-    ],
     highlighted: false,
     buttonText: "Contratar online"
   }
@@ -80,10 +53,11 @@ const Plans = () => {
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-16 text-center reveal">
           <h2 className="mb-6 text-4xl font-bold text-primary lg:text-5xl">
-            Planos e Valores
+            Planos e Formatos
           </h2>
           <p className="mx-auto max-w-3xl text-xl text-muted-foreground">
-            Conheça nossos formatos presenciais e online e escolha a melhor combinação para sua rotina.
+            Conheça nossos formatos presenciais e online e escolha a melhor combinação para sua
+            rotina.
           </p>
         </div>
 
@@ -129,25 +103,20 @@ const Plans = () => {
                   }`}
                 >
                   <div className="mb-3 space-y-1">
-                    <h3 className="text-lg font-semibold text-primary">{plan.name}</h3>
+                    <h3 className="text-2xl font-bold text-primary">{plan.name}</h3>
                     <p className="text-xs text-muted-foreground">{plan.description}</p>
                   </div>
                   <div className="mb-4">
-                    <span className="block text-2xl font-bold text-primary">R$ {plan.price}</span>
-                    <span className="text-xs text-muted-foreground">{plan.period}</span>
+                    <span className="block text-base font-semibold text-primary">Valores sob consulta</span>
+                    <span className="block text-xs text-muted-foreground">
+                      Para saber preços, entre em contato
+                    </span>
                   </div>
-                  <ul className="space-y-2 text-xs text-foreground">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li
-                        key={`${plan.name}-feature-${featureIndex}`}
-                        className="flex items-center gap-2 text-sm"
-                      >
-                        <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_12px_rgba(255,16,122,0.5)]" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button className="mt-6 w-full" variant={plan.highlighted ? "default" : "outline"}>
+                  <Button
+                    className="mt-6 w-full"
+                    variant={plan.highlighted ? "default" : "outline"}
+                    onClick={() => scrollToSection("contato")}
+                  >
                     {plan.buttonText}
                   </Button>
                 </div>
@@ -174,6 +143,3 @@ const Plans = () => {
 };
 
 export default Plans;
-
-
-
