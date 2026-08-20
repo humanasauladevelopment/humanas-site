@@ -27,7 +27,6 @@ const Index = () => {
       });
     }, observerOptions);
 
-    // Observe all reveal elements
     const revealElements = document.querySelectorAll(".reveal");
     revealElements.forEach((el) => observer.observe(el));
 
