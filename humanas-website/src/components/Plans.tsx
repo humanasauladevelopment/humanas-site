@@ -22,8 +22,6 @@ const plans = [
   }
 ];
 
-type Plan = (typeof plans)[number];
-
 const defaultPlanIndex = plans.findIndex((plan) => plan.highlighted);
 
 const Plans = () => {
@@ -31,10 +29,6 @@ const Plans = () => {
     defaultPlanIndex >= 0 ? defaultPlanIndex : 0
   );
   const activePlan = plans[activePlanIndex];
-  const secondaryPlan =
-    activePlan?.name === "Pacotes Presenciais"
-      ? plans.find((plan) => plan.name === "Aulas Avulsas")
-      : undefined;
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -42,8 +36,6 @@ const Plans = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  const cardsToRender = [activePlan, secondaryPlan].filter(Boolean) as Plan[];
 
   return (
     <section
@@ -93,34 +85,31 @@ const Plans = () => {
             })}
           </div>
 
-          {cardsToRender.length > 0 && (
+          {activePlan && (
             <div className="mt-16 flex flex-wrap justify-center gap-8">
-              {cardsToRender.map((plan) => (
-                <div
-                  key={plan.name}
-                  className={`w-full max-w-md rounded-3xl border border-white/40 bg-white/90 p-6 text-left shadow-[0_18px_40px_rgba(111,45,189,0.25)] backdrop-blur-xl transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_24px_55px_rgba(111,45,189,0.35)] ${
-                    plan.highlighted ? "border-[hsl(var(--humanas-pink))]" : ""
-                  }`}
-                >
-                  <div className="mb-3 space-y-1">
-                    <h3 className="text-2xl font-bold text-primary">{plan.name}</h3>
-                    <p className="text-xs text-muted-foreground">{plan.description}</p>
-                  </div>
-                  <div className="mb-4">
-                    <span className="block text-base font-semibold text-primary">Valores sob consulta</span>
-                    <span className="block text-xs text-muted-foreground">
-                      Para saber preços, entre em contato
-                    </span>
-                  </div>
-                  <Button
-                    className="mt-6 w-full"
-                    variant={plan.highlighted ? "default" : "outline"}
-                    onClick={() => scrollToSection("contato")}
-                  >
-                    {plan.buttonText}
-                  </Button>
+              <div
+                className={`w-full max-w-md rounded-3xl border border-white/40 bg-white/90 p-6 text-left shadow-[0_18px_40px_rgba(111,45,189,0.25)] backdrop-blur-xl transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_24px_55px_rgba(111,45,189,0.35)] ${
+                  activePlan.highlighted ? "border-[hsl(var(--humanas-pink))]" : ""
+                }`}
+              >
+                <div className="mb-3 space-y-1">
+                  <h3 className="text-2xl font-bold text-primary">{activePlan.name}</h3>
+                  <p className="text-xs text-muted-foreground">{activePlan.description}</p>
                 </div>
-              ))}
+                <div className="mb-4">
+                  <span className="block text-base font-semibold text-primary">Valores sob consulta</span>
+                  <span className="block text-xs text-muted-foreground">
+                    Para saber preços, entre em contato
+                  </span>
+                </div>
+                <Button
+                  className="mt-6 w-full"
+                  variant={activePlan.highlighted ? "default" : "outline"}
+                  onClick={() => scrollToSection("contato")}
+                >
+                  {activePlan.buttonText}
+                </Button>
+              </div>
             </div>
           )}
         </div>
